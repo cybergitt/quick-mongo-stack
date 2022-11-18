@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   mongodb:
@@ -15,7 +15,7 @@ services:
     ports:
       - '27017-27019:27017-27019'
     networks:
-      - dev-network
+      - dev-net
       
   mongo-express:
     depends_on: 
@@ -31,8 +31,8 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: secret
       ME_CONFIG_MONGODB_URL: mongodb://root:secret@mongodb:27017/
     networks:
-      - dev-network
+      - dev-net
       
 networks:
-  dev-network:
+  dev-net:
     external: true
